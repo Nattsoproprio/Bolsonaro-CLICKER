@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolsonaro Clicker</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Jogo Bolsonaro Clicker - Clique no Bolsonaro para ganhar votos!">
+    <meta name="theme-color" content="#0066cc">
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Bandeira_do_Brasil.svg/1200px-Bandeira_do_Brasil.svg.png">
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-blue-100 min-h-screen flex flex-col no-select">
+    <header class="bg-gradient-to-r from-green-600 via-yellow-500 to-blue-700 text-white p-4 md:p-6 shadow-xl">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <svg class="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Círculo externo -->
+                        <circle cx="50" cy="50" r="45" fill="#0066cc" stroke="#FFD700" stroke-width="4"/>
+                        <!-- Bandeira do Brasil simplificada -->
+                        <path d="M50 10 L90 50 L50 90 L10 50 Z" fill="#009c3b"/>
+                        <circle cx="50" cy="50" r="20" fill="#FFD700"/>
+                        <!-- Estrela -->
+                        <path d="M50 30 L55 45 L70 45 L60 55 L65 70 L50 60 L35 70 L40 55 L30 45 L45 45 Z" fill="#002776"/>
+                    </svg>
+                    <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-shadow-lg whitespace-nowrap">
+                        Bolsonaro Clicker
+                    </h1>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+                    <div class="bg-blue-800/80 backdrop-blur-sm px-4 py-2 md:px-6 md:py-3 rounded-xl shadow-lg border-2 border-yellow-500 w-full sm:w-auto">
+                        <div class="text-sm text-yellow-200 mb-1">Total de Votos</div>
+                        <span id="cookies-count" class="font-bold text-xl md:text-2xl">0</span>
+                    </div>
+                    <div class="bg-blue-800/80 backdrop-blur-sm px-4 py-2 md:px-6 md:py-3 rounded-xl shadow-lg border-2 border-yellow-500 w-full sm:w-auto">
+                        <div class="text-sm text-yellow-200 mb-1">Votos por Segundo</div>
+                        <span id="cookies-per-second" class="font-bold text-xl md:text-2xl">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center">
+        <div class="relative mb-8">
+            <div id="cookie" class="cookie-container cookie-float cursor-pointer">
+                <img style="border-radius: 30px;" src="./images/bolsonaro.webp" 
+                     alt="Bolsonaro" 
+                     class="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 select-none pointer-events-none">
+                <div id="click-effects" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+            </div>
+        </div>
+        <button id="reset-btn" class="mb-6 px-6 py-3 bg-red-500 text-white rounded-xl shadow-lg hover:bg-red-600 transition transform hover:scale-105">
+            <i class="fas fa-redo-alt mr-2"></i>Resetar Jogo
+        </button>
+
+        <div class="w-full max-w-4xl">
+            <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 mb-8 border border-blue-200">
+                <h2 class="text-2xl font-bold text-blue-800 mb-4 flex items-center">
+                    <i class="fas fa-users mr-2"></i>
+                    Apoiadores
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="upgrades-container">
+                    <!-- Upgrades will be added here by JavaScript -->
+                </div>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-blue-200">
+                <h2 class="text-2xl font-bold text-blue-800 mb-4 flex items-center">
+                    <i class="fas fa-trophy mr-2"></i>
+                    Conquistas
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="achievements-container">
+                    <!-- Achievements will be added here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gradient-to-r from-green-600 via-yellow-500 to-blue-700 text-white p-4 text-center">
+        <p class="text-lg">Clique no Bolsonaro para ganhar votos! 🇧🇷</p>
+    </footer>
+
+    <script src="game.js"></script>
+</body>
+</html>
